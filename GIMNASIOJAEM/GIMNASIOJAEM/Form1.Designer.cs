@@ -93,6 +93,7 @@
             this.tbUserPassword.Name = "tbUserPassword";
             this.tbUserPassword.Size = new System.Drawing.Size(258, 20);
             this.tbUserPassword.TabIndex = 3;
+            this.tbUserPassword.UseSystemPasswordChar = true;
             // 
             // btnEnter
             // 
