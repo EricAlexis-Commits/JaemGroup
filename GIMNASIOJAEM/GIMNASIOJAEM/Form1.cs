@@ -19,12 +19,14 @@ namespace GIMNASIOJAEM
         {
             InitializeComponent();
         }
-        static MySqlConnection mysql = new MySqlConnection("server=127.0.0.1; user=root; database=gimnasio; password=;");
+        static string mysqlConn = "server=127.0.0.1; user=root; database=gimnasio; password=;";
+        static MySqlConnection mysql = new MySqlConnection(mysqlConn);
         private void btnEnter_Click(object sender, EventArgs e)
         {
 
             CMD logear = new CMD();
             logear.seleccionarUsuario(tbUserName.Text,tbUserPassword.Text);
+            this.Hide();
             
         }
         class CMD
@@ -48,6 +50,7 @@ namespace GIMNASIOJAEM
                             Principal menu = new Principal();
                             menu.Show();
                             
+                            
                         }
                         else if (dt.Rows[0][1].ToString()=="Encargado" || dt.Rows[0][1].ToString() == "encargado")
                         {
@@ -62,12 +65,25 @@ namespace GIMNASIOJAEM
                         }
                     }
                     mysql.Close();
+                    
 
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString());
                 }
+            }
+        }
+
+        private void cbPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (tbUserPassword.UseSystemPasswordChar==true && cbPassword.Checked == true)
+            {
+                tbUserPassword.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                tbUserPassword.UseSystemPasswordChar = true;
             }
         }
     }

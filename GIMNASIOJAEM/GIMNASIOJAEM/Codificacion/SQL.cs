@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 namespace GIMNASIOJAEM.Codificacion
 {
@@ -12,17 +13,36 @@ namespace GIMNASIOJAEM.Codificacion
         public MySqlConnection conexion;
         public SQL(MySqlConnection Conexion)
         {
-            Conexion = conexion;
+            this.conexion = Conexion;
         }
-        public void fillDVG()
+        //Metodo para llenar el datatable
+        public DataTable fillDVG(string table,DataGridView dgv)
         {
-            MySqlCommand comando = new MySqlCommand("SELECT * FROM ",conexion);
-
-            MySqlDataAdapter adaptador = new MySqlDataAdapter(comando);
-
-            DataTable tabla = new DataTable();
-
-            adaptador.Fill(tabla);
+            DataTable dt = new DataTable();
+            if (conexion.State != ConnectionState.Open)
+            {
+                try
+                {
+                    conexion.Open();
+                    MySqlCommand mysqlcommand = new MySqlCommand($"SELECT * FROM {table}", conexion);
+                    MySqlDataAdapter mysqldataAdapter = new MySqlDataAdapter(mysqlcommand);
+                    mysqldataAdapter.Fill(dt);
+                    dgv.DataSource = dt;
+                }
+                catch (Exception ex) 
+                {
+                    Console.WriteLine("Error al llenar el datatable");
+                }
+                finally
+                {
+                    if (conexion.State == ConnectionState.Open)
+                    {
+                        conexion.Close();
+                    }
+                }
+                
+            }
+            return dt;
         }
 
     }

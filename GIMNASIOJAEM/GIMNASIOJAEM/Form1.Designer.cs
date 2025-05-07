@@ -36,11 +36,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.cbPassword = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.cbPassword);
             this.panel1.Controls.Add(this.linkLabel1);
             this.panel1.Controls.Add(this.btnEnter);
             this.panel1.Controls.Add(this.tbUserPassword);
@@ -115,6 +117,17 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Login";
             // 
+            // cbPassword
+            // 
+            this.cbPassword.AutoSize = true;
+            this.cbPassword.Location = new System.Drawing.Point(21, 150);
+            this.cbPassword.Name = "cbPassword";
+            this.cbPassword.Size = new System.Drawing.Size(99, 17);
+            this.cbPassword.TabIndex = 6;
+            this.cbPassword.Text = "Ver Contraseña";
+            this.cbPassword.UseVisualStyleBackColor = true;
+            this.cbPassword.CheckedChanged += new System.EventHandler(this.cbPassword_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -141,6 +154,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox cbPassword;
     }
 }
 
