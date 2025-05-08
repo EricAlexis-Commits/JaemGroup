@@ -73,6 +73,7 @@ namespace GIMNASIOJAEM
                     MessageBox.Show(ex.ToString());
                 }
             }
+           
         }
 
         private void cbPassword_CheckedChanged(object sender, EventArgs e)

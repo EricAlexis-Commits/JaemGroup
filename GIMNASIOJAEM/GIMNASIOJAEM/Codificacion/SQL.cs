@@ -35,10 +35,10 @@ namespace GIMNASIOJAEM.Codificacion
                 }
                 finally
                 {
-                    if (conexion.State == ConnectionState.Open)
-                    {
+                    
+                    
                         conexion.Close();
-                    }
+                    
                 }
                 
             }

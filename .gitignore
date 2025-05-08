@@ -1,0 +1,14 @@
+# Reglas específicas para C# y Visual Studio
+[Bb]in/
+[Oo]bj/
+*.exe
+*.pdb
+*.cache
+*.resources
+.vs/
+*.user
+*.suo
+*.Designer.cs
+*.Up2Date
+*.FileListAbsolute.txt
+*.obj/
