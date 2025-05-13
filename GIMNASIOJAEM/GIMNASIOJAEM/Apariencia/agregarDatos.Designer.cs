@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.tbID = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblID = new System.Windows.Forms.Label();
             this.tbNombre = new System.Windows.Forms.TextBox();
             this.tbApellidoP = new System.Windows.Forms.TextBox();
             this.tbApellidoM = new System.Windows.Forms.TextBox();
@@ -48,20 +48,20 @@
             // 
             // tbID
             // 
-            this.tbID.Location = new System.Drawing.Point(69, 25);
+            this.tbID.Location = new System.Drawing.Point(49, 24);
             this.tbID.Name = "tbID";
             this.tbID.Size = new System.Drawing.Size(100, 20);
             this.tbID.TabIndex = 0;
             // 
-            // label1
+            // lblID
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(25, 21);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "ID";
+            this.lblID.AutoSize = true;
+            this.lblID.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblID.Location = new System.Drawing.Point(11, 24);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(25, 21);
+            this.lblID.TabIndex = 1;
+            this.lblID.Text = "ID";
             // 
             // tbNombre
             // 
@@ -206,10 +206,11 @@
             this.Controls.Add(this.tbApellidoM);
             this.Controls.Add(this.tbApellidoP);
             this.Controls.Add(this.tbNombre);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblID);
             this.Controls.Add(this.tbID);
             this.Name = "agregarDatos";
             this.Text = "Nuevo";
+            this.Load += new System.EventHandler(this.agregarDatos_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -218,7 +219,7 @@
         #endregion
 
         private System.Windows.Forms.TextBox tbID;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.TextBox tbNombre;
         private System.Windows.Forms.TextBox tbApellidoP;
         private System.Windows.Forms.TextBox tbApellidoM;

@@ -104,6 +104,18 @@
     <Compile Include="Apariencia\agregarDatos.Designer.cs">
       <DependentUpon>agregarDatos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Apariencia\crearUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apariencia\crearUsuario.Designer.cs">
+      <DependentUpon>crearUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apariencia\desactivar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apariencia\desactivar.Designer.cs">
+      <DependentUpon>desactivar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Apariencia\eliminarDatos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +140,12 @@
     <Compile Include="Apariencia\Principal.Designer.cs">
       <DependentUpon>Principal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Apariencia\Usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apariencia\Usuario.Designer.cs">
+      <DependentUpon>Usuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Codificacion\SQL.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -140,6 +158,12 @@
     <EmbeddedResource Include="Apariencia\agregarDatos.resx">
       <DependentUpon>agregarDatos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Apariencia\crearUsuario.resx">
+      <DependentUpon>crearUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apariencia\desactivar.resx">
+      <DependentUpon>desactivar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Apariencia\eliminarDatos.resx">
       <DependentUpon>eliminarDatos.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Apariencia\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apariencia\Usuario.resx">
+      <DependentUpon>Usuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

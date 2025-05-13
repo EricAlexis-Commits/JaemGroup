@@ -61,5 +61,15 @@ namespace GIMNASIOJAEM.Apariencia
         {
             abrirpanelHijo(new Personas());
         }
+
+        private void Principal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUsuario_Click(object sender, EventArgs e)
+        {
+            abrirpanelHijo(new Usuario());
+        }
     }
 }

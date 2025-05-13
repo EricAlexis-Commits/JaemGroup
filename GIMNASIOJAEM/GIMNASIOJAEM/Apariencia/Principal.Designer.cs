@@ -212,7 +212,7 @@
             // 
             this.btnClientes.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClientes.BackgroundImage")));
             this.btnClientes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnClientes.Location = new System.Drawing.Point(407, 25);
+            this.btnClientes.Location = new System.Drawing.Point(392, 25);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Size = new System.Drawing.Size(89, 52);
             this.btnClientes.TabIndex = 4;
@@ -222,7 +222,7 @@
             // 
             this.btnEntrenador.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEntrenador.BackgroundImage")));
             this.btnEntrenador.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnEntrenador.Location = new System.Drawing.Point(312, 25);
+            this.btnEntrenador.Location = new System.Drawing.Point(297, 25);
             this.btnEntrenador.Name = "btnEntrenador";
             this.btnEntrenador.Size = new System.Drawing.Size(89, 52);
             this.btnEntrenador.TabIndex = 3;
@@ -232,17 +232,18 @@
             // 
             this.btnUsuario.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnUsuario.BackgroundImage")));
             this.btnUsuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnUsuario.Location = new System.Drawing.Point(217, 25);
+            this.btnUsuario.Location = new System.Drawing.Point(202, 25);
             this.btnUsuario.Name = "btnUsuario";
             this.btnUsuario.Size = new System.Drawing.Size(89, 52);
             this.btnUsuario.TabIndex = 2;
             this.btnUsuario.UseVisualStyleBackColor = true;
+            this.btnUsuario.Click += new System.EventHandler(this.btnUsuario_Click);
             // 
             // btnPersonas
             // 
             this.btnPersonas.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPersonas.BackgroundImage")));
             this.btnPersonas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPersonas.Location = new System.Drawing.Point(122, 25);
+            this.btnPersonas.Location = new System.Drawing.Point(107, 25);
             this.btnPersonas.Name = "btnPersonas";
             this.btnPersonas.Size = new System.Drawing.Size(89, 52);
             this.btnPersonas.TabIndex = 1;
@@ -252,7 +253,7 @@
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(9, 9);
+            this.lblUsername.Location = new System.Drawing.Point(12, 9);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(35, 13);
             this.lblUsername.TabIndex = 0;
@@ -267,6 +268,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "Principal";
             this.Text = "Menu";
+            this.Load += new System.EventHandler(this.Principal_Load);
             this.panel1.ResumeLayout(false);
             this.panelOpciones.ResumeLayout(false);
             this.panelOpciones.PerformLayout();

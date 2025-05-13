@@ -17,14 +17,18 @@ namespace GIMNASIOJAEM.Apariencia
         public agregarDatos()
         {
             InitializeComponent();
+            lblID = id;
         }
-        static string conexionSQL= "server = 127.0.0.1; user=root; database=gimnasio; password=";
+        static string conexionSQL= "server = 127.0.0.1; user=root; database=gimnasios; password=";
         MySqlConnection conexion = new MySqlConnection(conexionSQL);
+        public Label id = new Label();
+        
+        
         //Metodo para insertar datos dentro del boton
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             //Si cada uno de estos es diferente a vacio se entra al try
-            if (tbID.Text!="" && tbNombre.Text != "" && tbApellidoP.Text != "" && tbApellidoM.Text != "" && dtpFechaNacimiento.Text != "" && tbPeso.Text != "" && tbEstatura.Text != "")
+            if (tbNombre.Text != "" && tbApellidoP.Text != "" && tbApellidoM.Text != "" && dtpFechaNacimiento.Text != "" && tbPeso.Text != "" && tbEstatura.Text != "")
             {
                 //Manejo de errores en caso de problemas a la hora de insertar datos en la DB
                 try
@@ -53,7 +57,10 @@ namespace GIMNASIOJAEM.Apariencia
                 }
                 finally
                 {
+                    Personas formPersona = new Personas();
+                    formPersona.refrescarForm("persona");
                     this.Close();
+                    
                 }
             }
             else
@@ -96,6 +103,21 @@ namespace GIMNASIOJAEM.Apariencia
                     persona.Update();
                 }
             }
+        }
+        public void ocultarDatos()
+        {
+            id.Visible = false;
+            tbID.Visible = false;
+        }
+        public void revelarDatos()
+        {
+            id.Visible = true;
+            tbID.Visible = true;
+        }
+
+        private void agregarDatos_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

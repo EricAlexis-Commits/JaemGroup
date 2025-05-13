@@ -19,7 +19,7 @@ namespace GIMNASIOJAEM
         {
             InitializeComponent();
         }
-        static string mysqlConn = "server=127.0.0.1; user=root; database=gimnasio; password=;";
+        static string mysqlConn = "server=127.0.0.1; user=root; database=gimnasios; password=;";
         static MySqlConnection mysql = new MySqlConnection(mysqlConn);
         private void btnEnter_Click(object sender, EventArgs e)
         {
@@ -38,8 +38,9 @@ namespace GIMNASIOJAEM
                     //Abrimos primeramente la base de datos
                     mysql.Open();
                     MySqlCommand consulta = new MySqlCommand("SELECT Nombre_Usuario, Tipo_Usuario FROM usuario WHERE Nombre_Usuario= @nombre AND Contraseña=@contraseña", mysql);
-                    consulta.Parameters.AddWithValue("nombre", nombre);
-                    consulta.Parameters.AddWithValue("contraseña", contraseña);
+                    consulta.Parameters.AddWithValue("@nombre", nombre);
+                    consulta.Parameters.AddWithValue("@contraseña", contraseña);
+                    
                     MySqlDataAdapter adapter = new MySqlDataAdapter(consulta);
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
@@ -73,9 +74,21 @@ namespace GIMNASIOJAEM
                     MessageBox.Show(ex.ToString());
                 }
             }
-           
+            //Metodo para obtener el nombre de usuario en base al nombre colocado en el textbox
+            public string accesoRol(string name,Label user) //Necesito poner un string en el otro form???
+            {
+                if (string.IsNullOrEmpty(name)) //Si esta vacio entonces vamos a decirr que el texto va ser ese string vacio
+                {
+                    user.Text = name;
+                }
+                else //Al contrario damos lo mismo
+                {
+                    user.Text = name;
+                }
+                //Retornamos el nombre
+                return name;
+            }
         }
-
         private void cbPassword_CheckedChanged(object sender, EventArgs e)
         {
             if (tbUserPassword.UseSystemPasswordChar==true && cbPassword.Checked == true)
