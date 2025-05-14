@@ -122,6 +122,12 @@
     <Compile Include="Apariencia\eliminarDatos.Designer.cs">
       <DependentUpon>eliminarDatos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Apariencia\Entrenador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apariencia\Entrenador.Designer.cs">
+      <DependentUpon>Entrenador.cs</DependentUpon>
+    </Compile>
     <Compile Include="Apariencia\Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +145,12 @@
     </Compile>
     <Compile Include="Apariencia\Principal.Designer.cs">
       <DependentUpon>Principal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apariencia\registrarEntrenador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apariencia\registrarEntrenador.Designer.cs">
+      <DependentUpon>registrarEntrenador.cs</DependentUpon>
     </Compile>
     <Compile Include="Apariencia\Usuario.cs">
       <SubType>Form</SubType>
@@ -167,6 +179,9 @@
     <EmbeddedResource Include="Apariencia\eliminarDatos.resx">
       <DependentUpon>eliminarDatos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Apariencia\Entrenador.resx">
+      <DependentUpon>Entrenador.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Apariencia\Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
     </EmbeddedResource>
@@ -175,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Apariencia\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apariencia\registrarEntrenador.resx">
+      <DependentUpon>registrarEntrenador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apariencia\Usuario.resx">
       <DependentUpon>Usuario.cs</DependentUpon>

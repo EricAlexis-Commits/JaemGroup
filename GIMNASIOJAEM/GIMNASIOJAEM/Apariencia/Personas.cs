@@ -64,7 +64,7 @@ namespace GIMNASIOJAEM.Apariencia
         {
             if (tbBusqueda.Text != "")
             {
-                //Abrimos la conexion
+                /*//Abrimos la conexion
                 mysql.Open();
                 //Creamos la query de busqueda
                 MySqlCommand busqueda = new MySqlCommand("SELECT * FROM persona WHERE Nombre=@nombre", mysql);
@@ -99,11 +99,52 @@ namespace GIMNASIOJAEM.Apariencia
                 dgvPersonas.DataSource = tabla;
                 //Se cierra la conexion
                 mysql.Close();
+                */
             }
+        }
+        public void buscarNombre(DataGridView dgv,TextBox busquedas,string tablas)
+        {
+            if (busquedas.Text != "")
+            {
+                MySqlConnection conn = new MySqlConnection("server=127.0.0.1; user=root; database=gimnasios; password=;");
+                conn.Open();
+                MySqlCommand busqueda = new MySqlCommand($"SELECT * FROM {tablas} WHERE Nombre=@nombre", mysql);
+                //La consulta se hace en base a el nombre cuyo tipo va ser un varchar, ubicado en tbBusqueda
+                busqueda.Parameters.Add("@nombre", MySqlDbType.VarChar).Value = tbBusqueda.Text;
+                //Creamos un adaptador
+                MySqlDataAdapter adaptador = new MySqlDataAdapter(busqueda);
+                //Creamos un objeto tipo datatable
+                DataTable tabla = new DataTable();
+                //Llenamos la tabla con ayuda del adaptador
+                adaptador.Fill(tabla);
+                //Los datos de la variable tabla va ser igual a los datos del dgv
+                dgv.DataSource = tabla;
+                //Se cierra la conexion
+                mysql.Close();
+            }
+            else
+            {
+                mysql.Open();
+                //Creamos la query de busqueda
+                MySqlCommand busqueda = new MySqlCommand("SELECT * FROM persona", mysql);
+                //La consulta se hace en base a el nombre cuyo tipo va ser un varchar, ubicado en tbBusqueda
+                //busqueda.Parameters.Add("@nombre", MySqlDbType.VarChar).Value = tbBusqueda.Text;
+                //Creamos un adaptador
+                MySqlDataAdapter adaptador = new MySqlDataAdapter(busqueda);
+                //Creamos un objeto tipo datatable
+                DataTable tabla = new DataTable();
+                //Llenamos la tabla con ayuda del adaptador
+                adaptador.Fill(tabla);
+                //Los datos de la variable tabla va ser igual a los datos del dgv
+                dgv.DataSource = tabla;
+                //Se cierra la conexion
+                mysql.Close();
+            }
+            
         }
         public void refrescarForm(string tabla)
         {
-            mysql.Open();
+            /*mysql.Open();
 
             MySqlCommand busqueda = new MySqlCommand($"SELECT * FROM {tabla}", mysql);
 
@@ -117,6 +158,7 @@ namespace GIMNASIOJAEM.Apariencia
             dgvPersonas.DataSource = table;
 
             mysql.Close();
+            */
         }
 
         private void btnEditar_Click_1(object sender, EventArgs e)
