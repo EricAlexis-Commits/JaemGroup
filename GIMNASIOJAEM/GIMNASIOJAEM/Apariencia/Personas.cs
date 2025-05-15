@@ -64,7 +64,7 @@ namespace GIMNASIOJAEM.Apariencia
         {
             if (tbBusqueda.Text != "")
             {
-                /*//Abrimos la conexion
+                
                 mysql.Open();
                 //Creamos la query de busqueda
                 MySqlCommand busqueda = new MySqlCommand("SELECT * FROM persona WHERE Nombre=@nombre", mysql);
@@ -99,7 +99,7 @@ namespace GIMNASIOJAEM.Apariencia
                 dgvPersonas.DataSource = tabla;
                 //Se cierra la conexion
                 mysql.Close();
-                */
+                
             }
         }
         public void buscarNombre(DataGridView dgv,TextBox busquedas,string tablas)

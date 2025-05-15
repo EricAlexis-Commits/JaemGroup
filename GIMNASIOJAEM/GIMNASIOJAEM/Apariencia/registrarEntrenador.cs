@@ -17,27 +17,27 @@ namespace GIMNASIOJAEM.Apariencia
         {
             InitializeComponent();
         }
-
+       
         private void label3_Click(object sender, EventArgs e)
         {
 
         }
-        MySqlConnection mysql;
-        MySqlCommand comm;
-        MySqlDataReader adapt;
+        
+        
 
         private void registrarEntrenador_Load(object sender, EventArgs e)
         {
             try
             {
-                mysql = new MySqlConnection("server = 127.0.0.1; user = root; database = gimnasios; password =;");
+                MySqlConnection mysql = new MySqlConnection("server = 127.0.0.1; user = root; database = gimnasios; password =;");
                 mysql.Open();
-                comm = new MySqlCommand("SELECT * FROM usuario");
-                adapt = comm.ExecuteReader();
-                while (adapt.Read())
-                {
-                    cbUsuarios.Items.Add(adapt["Nombre"]);
-                }
+                MySqlCommand comm = new MySqlCommand("SELECT Clave_Usuario,concat(Nombre_Usuario,' ',Tipo_Usuario)FROM usuario",mysql);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                cbUsuarios.DataSource = dt;
+                cbUsuarios.ValueMember = "Clave_Usuario";
+                cbUsuarios.DisplayMember = "Nombre_Usuario";
                 mysql.Close();
             }
             catch(Exception ex)
@@ -60,6 +60,11 @@ namespace GIMNASIOJAEM.Apariencia
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbUsuarios_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

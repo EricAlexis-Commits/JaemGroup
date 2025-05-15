@@ -31,9 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelContenido = new System.Windows.Forms.Panel();
+            this.panelContent = new System.Windows.Forms.Panel();
+            this.panelInformacion = new System.Windows.Forms.Panel();
             this.panelOpciones = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnInicio = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -49,12 +51,10 @@
             this.btnUsuario = new System.Windows.Forms.Button();
             this.btnPersonas = new System.Windows.Forms.Button();
             this.lblUsername = new System.Windows.Forms.Label();
-            this.panelContent = new System.Windows.Forms.Panel();
-            this.panelInformacion = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panelContenido.SuspendLayout();
-            this.panelOpciones.SuspendLayout();
             this.panelContent.SuspendLayout();
+            this.panelOpciones.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -76,10 +76,27 @@
             this.panelContenido.Size = new System.Drawing.Size(1005, 500);
             this.panelContenido.TabIndex = 1;
             // 
+            // panelContent
+            // 
+            this.panelContent.Controls.Add(this.panelInformacion);
+            this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContent.Location = new System.Drawing.Point(0, 0);
+            this.panelContent.Name = "panelContent";
+            this.panelContent.Size = new System.Drawing.Size(1005, 500);
+            this.panelContent.TabIndex = 1;
+            // 
+            // panelInformacion
+            // 
+            this.panelInformacion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelInformacion.Location = new System.Drawing.Point(0, 0);
+            this.panelInformacion.Name = "panelInformacion";
+            this.panelInformacion.Size = new System.Drawing.Size(1005, 500);
+            this.panelInformacion.TabIndex = 0;
+            // 
             // panelOpciones
             // 
             this.panelOpciones.Controls.Add(this.label10);
-            this.panelOpciones.Controls.Add(this.button1);
+            this.panelOpciones.Controls.Add(this.btnInicio);
             this.panelOpciones.Controls.Add(this.label7);
             this.panelOpciones.Controls.Add(this.label6);
             this.panelOpciones.Controls.Add(this.label5);
@@ -110,16 +127,16 @@
             this.label10.TabIndex = 20;
             this.label10.Text = "Inicio CTRL+Q";
             // 
-            // button1
+            // btnInicio
             // 
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.Location = new System.Drawing.Point(12, 25);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(89, 52);
-            this.button1.TabIndex = 19;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.button1_KeyDown);
+            this.btnInicio.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnInicio.BackgroundImage")));
+            this.btnInicio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnInicio.Location = new System.Drawing.Point(12, 25);
+            this.btnInicio.Name = "btnInicio";
+            this.btnInicio.Size = new System.Drawing.Size(89, 52);
+            this.btnInicio.TabIndex = 19;
+            this.btnInicio.UseVisualStyleBackColor = true;
+            this.btnInicio.KeyDown += new System.Windows.Forms.KeyEventHandler(this.button1_KeyDown);
             // 
             // label7
             // 
@@ -228,6 +245,7 @@
             this.btnClientes.Size = new System.Drawing.Size(89, 52);
             this.btnClientes.TabIndex = 4;
             this.btnClientes.UseVisualStyleBackColor = true;
+            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             this.btnClientes.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnClientes_KeyDown);
             // 
             // btnEntrenador
@@ -276,23 +294,6 @@
             this.lblUsername.Text = "label1";
             this.lblUsername.Click += new System.EventHandler(this.label1_Click);
             // 
-            // panelContent
-            // 
-            this.panelContent.Controls.Add(this.panelInformacion);
-            this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContent.Location = new System.Drawing.Point(0, 0);
-            this.panelContent.Name = "panelContent";
-            this.panelContent.Size = new System.Drawing.Size(1005, 500);
-            this.panelContent.TabIndex = 1;
-            // 
-            // panelInformacion
-            // 
-            this.panelInformacion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelInformacion.Location = new System.Drawing.Point(0, 0);
-            this.panelInformacion.Name = "panelInformacion";
-            this.panelInformacion.Size = new System.Drawing.Size(1005, 500);
-            this.panelInformacion.TabIndex = 0;
-            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -304,9 +305,9 @@
             this.Load += new System.EventHandler(this.Principal_Load);
             this.panel1.ResumeLayout(false);
             this.panelContenido.ResumeLayout(false);
+            this.panelContent.ResumeLayout(false);
             this.panelOpciones.ResumeLayout(false);
             this.panelOpciones.PerformLayout();
-            this.panelContent.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -331,7 +332,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnAsistencia;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnInicio;
         private System.Windows.Forms.Panel panelContenido;
         private System.Windows.Forms.Panel panelContent;
         private System.Windows.Forms.Panel panelInformacion;

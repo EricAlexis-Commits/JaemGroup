@@ -77,6 +77,7 @@ namespace GIMNASIOJAEM.Apariencia
             if (e.Control && e.KeyCode.ToString() == "Q")
             {
                 abrirpanelHijo(new Inicio());
+               
             }
         }
 
@@ -85,6 +86,7 @@ namespace GIMNASIOJAEM.Apariencia
             if (e.Control && e.KeyCode.ToString() == "S")
             {
                 abrirpanelHijo(new Usuario());
+                
             }
         }
 
@@ -106,7 +108,7 @@ namespace GIMNASIOJAEM.Apariencia
 
         private void btnAsistencia_Click(object sender, EventArgs e)
         {
-
+            abrirpanelHijo(new Clase());
         }
 
         private void btnAsistencia_KeyDown(object sender, KeyEventArgs e)
@@ -131,6 +133,11 @@ namespace GIMNASIOJAEM.Apariencia
             {
 
             }
+        }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            abrirpanelHijo(new Clientes());
         }
     }
 }
