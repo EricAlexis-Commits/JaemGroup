@@ -31,7 +31,7 @@ namespace GIMNASIOJAEM.Apariencia
             {
                 MySqlConnection mysql = new MySqlConnection("server = 127.0.0.1; user = root; database = gimnasios; password =;");
                 mysql.Open();
-                MySqlCommand comm = new MySqlCommand("SELECT Clave_Usuario,concat(Nombre_Usuario,' ',Tipo_Usuario)FROM usuario",mysql);
+                MySqlCommand comm = new MySqlCommand("SELECT Clave_Usuario,concat(Nombre_Usuario,' ',Tipo_Usuario)AS Nombre_Usuario FROM usuario",mysql);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);

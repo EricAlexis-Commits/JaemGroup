@@ -34,6 +34,10 @@
             this.panelContent = new System.Windows.Forms.Panel();
             this.panelInformacion = new System.Windows.Forms.Panel();
             this.panelOpciones = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.btnInicio = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
@@ -64,7 +68,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1005, 603);
+            this.panel1.Size = new System.Drawing.Size(1061, 603);
             this.panel1.TabIndex = 0;
             // 
             // panelContenido
@@ -73,7 +77,7 @@
             this.panelContenido.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenido.Location = new System.Drawing.Point(0, 103);
             this.panelContenido.Name = "panelContenido";
-            this.panelContenido.Size = new System.Drawing.Size(1005, 500);
+            this.panelContenido.Size = new System.Drawing.Size(1061, 500);
             this.panelContenido.TabIndex = 1;
             // 
             // panelContent
@@ -82,7 +86,7 @@
             this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContent.Location = new System.Drawing.Point(0, 0);
             this.panelContent.Name = "panelContent";
-            this.panelContent.Size = new System.Drawing.Size(1005, 500);
+            this.panelContent.Size = new System.Drawing.Size(1061, 500);
             this.panelContent.TabIndex = 1;
             // 
             // panelInformacion
@@ -90,11 +94,15 @@
             this.panelInformacion.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelInformacion.Location = new System.Drawing.Point(0, 0);
             this.panelInformacion.Name = "panelInformacion";
-            this.panelInformacion.Size = new System.Drawing.Size(1005, 500);
+            this.panelInformacion.Size = new System.Drawing.Size(1061, 500);
             this.panelInformacion.TabIndex = 0;
             // 
             // panelOpciones
             // 
+            this.panelOpciones.Controls.Add(this.label9);
+            this.panelOpciones.Controls.Add(this.button2);
+            this.panelOpciones.Controls.Add(this.label8);
+            this.panelOpciones.Controls.Add(this.button1);
             this.panelOpciones.Controls.Add(this.label10);
             this.panelOpciones.Controls.Add(this.btnInicio);
             this.panelOpciones.Controls.Add(this.label7);
@@ -115,8 +123,46 @@
             this.panelOpciones.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelOpciones.Location = new System.Drawing.Point(0, 0);
             this.panelOpciones.Name = "panelOpciones";
-            this.panelOpciones.Size = new System.Drawing.Size(1005, 103);
+            this.panelOpciones.Size = new System.Drawing.Size(1061, 103);
             this.panelOpciones.TabIndex = 0;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(893, 80);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(43, 13);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "Rutinas";
+            // 
+            // button2
+            // 
+            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button2.Location = new System.Drawing.Point(896, 25);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(89, 52);
+            this.button2.TabIndex = 23;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(798, 80);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(55, 13);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "Asistencia";
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.Location = new System.Drawing.Point(801, 25);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(89, 52);
+            this.button1.TabIndex = 21;
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // label10
             // 
@@ -136,12 +182,13 @@
             this.btnInicio.Size = new System.Drawing.Size(89, 52);
             this.btnInicio.TabIndex = 19;
             this.btnInicio.UseVisualStyleBackColor = true;
+            this.btnInicio.Click += new System.EventHandler(this.btnInicio_Click);
             this.btnInicio.KeyDown += new System.Windows.Forms.KeyEventHandler(this.button1_KeyDown);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(721, 80);
+            this.label7.Location = new System.Drawing.Point(711, 80);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(81, 13);
             this.label7.TabIndex = 16;
@@ -150,7 +197,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(607, 80);
+            this.label6.Location = new System.Drawing.Point(597, 80);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(108, 13);
             this.label6.TabIndex = 15;
@@ -159,7 +206,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(512, 80);
+            this.label5.Location = new System.Drawing.Point(502, 80);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(82, 13);
             this.label5.TabIndex = 14;
@@ -169,7 +216,7 @@
             // 
             this.btnAsistencia.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAsistencia.BackgroundImage")));
             this.btnAsistencia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAsistencia.Location = new System.Drawing.Point(515, 25);
+            this.btnAsistencia.Location = new System.Drawing.Point(505, 25);
             this.btnAsistencia.Name = "btnAsistencia";
             this.btnAsistencia.Size = new System.Drawing.Size(89, 52);
             this.btnAsistencia.TabIndex = 13;
@@ -181,7 +228,7 @@
             // 
             this.btnPago.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPago.BackgroundImage")));
             this.btnPago.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPago.Location = new System.Drawing.Point(705, 25);
+            this.btnPago.Location = new System.Drawing.Point(695, 25);
             this.btnPago.Name = "btnPago";
             this.btnPago.Size = new System.Drawing.Size(89, 52);
             this.btnPago.TabIndex = 10;
@@ -192,11 +239,12 @@
             // 
             this.btnMembresias.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMembresias.BackgroundImage")));
             this.btnMembresias.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnMembresias.Location = new System.Drawing.Point(610, 25);
+            this.btnMembresias.Location = new System.Drawing.Point(600, 25);
             this.btnMembresias.Name = "btnMembresias";
             this.btnMembresias.Size = new System.Drawing.Size(89, 52);
             this.btnMembresias.TabIndex = 9;
             this.btnMembresias.UseVisualStyleBackColor = true;
+            this.btnMembresias.Click += new System.EventHandler(this.btnMembresias_Click);
             this.btnMembresias.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnMembresias_KeyDown);
             // 
             // label4
@@ -298,7 +346,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1005, 603);
+            this.ClientSize = new System.Drawing.Size(1061, 603);
             this.Controls.Add(this.panel1);
             this.Name = "Principal";
             this.Text = "Menu";
@@ -336,5 +384,9 @@
         private System.Windows.Forms.Panel panelContenido;
         private System.Windows.Forms.Panel panelContent;
         private System.Windows.Forms.Panel panelInformacion;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button button1;
     }
 }

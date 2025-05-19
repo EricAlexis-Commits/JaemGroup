@@ -13,8 +13,8 @@ namespace GIMNASIOJAEM.Apariencia
 {
     public partial class Inicio : Form
     {
-        string conn= "server = 127.0.0.1; user=root; database=gimnasios; password=;";
-        MySqlConnection conexion;
+        static string conn= "server = 127.0.0.1; user=root; database=gimnasios; password=;";
+        MySqlConnection conexion=new MySqlConnection(conn);
         MySqlCommand query;
 
         public Inicio()
@@ -24,8 +24,31 @@ namespace GIMNASIOJAEM.Apariencia
 
         private void Inicio_Load(object sender, EventArgs e)
         {
-            conexion = new MySqlConnection(conn);
-            conexion.Open();
+            try
+            {
+                int cantidadClientes = 0;
+                int cantidadEntrenadores = 0;
+                int cantidadClases = 0;
+                int cantidadMembresias = 0;
+                conexion.Open();
+                cantidadClientes = Convert.ToInt32(new MySqlCommand("SELECT COUNT(*)FROM cliente", conexion).ExecuteScalar());
+                cantidadEntrenadores = Convert.ToInt32(new MySqlCommand("SELECT COUNT(*)FROM entrenador", conexion).ExecuteScalar());
+                cantidadClases = Convert.ToInt32(new MySqlCommand("SELECT COUNT(*)FROM clase WHERE Estado_Clase='Activa'", conexion).ExecuteScalar());
+                cantidadMembresias = Convert.ToInt32(new MySqlCommand("SELECT COUNT(*)FROM membresia WHERE Estatus_Membresia='Activa'", conexion).ExecuteScalar());
+                conexion.Close();
+                lblClientes.Text = cantidadClientes.ToString();
+                lblClases.Text = cantidadClases.ToString();
+                lblEntrenadores.Text = cantidadEntrenadores.ToString();
+                lblMembresias.Text = cantidadMembresias.ToString();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+           
+
+
+
 
         }
     }

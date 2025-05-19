@@ -32,7 +32,19 @@ namespace GIMNASIOJAEM.Apariencia
                 cbEntrenador.DataSource = dt;
                 cbEntrenador.ValueMember = "ID_Entrenador";
                 cbEntrenador.DisplayMember = "Nombre";
+
+                MySqlCommand query = new MySqlCommand("SELECT ID_Cliente,concat(persona.Nombre,' ',persona.Apellido_Paterno)AS NombreCompleto FROM cliente JOIN persona ON cliente.Persona_ID=persona.ID_Persona;",conn);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(query);
+                DataTable datatable = new DataTable();
+                adapter.Fill(datatable);
+                cbCliente.DataSource = datatable;
+                cbCliente.ValueMember = "ID_Cliente";
+                cbCliente.DisplayMember = "NombreCompleto";
+                
+
                 conn.Close();
+
+                
             }
             catch(Exception ex)
             {
@@ -40,19 +52,46 @@ namespace GIMNASIOJAEM.Apariencia
             }
             
         }
-
+        /*
+               //Llena el comboBox con una consulta de las clases disponibles, seleccionado su ID y mostrandolo como nombre y tipo de clase
+               mysql.Open();
+               MySqlCommand query = new MySqlCommand("SELECT ID_Clase,concat(Nombre,' ',Tipo_Clase)AS Nombre FROM clase",mysql);
+               MySqlDataAdapter adapter = new MySqlDataAdapter(query);
+               DataTable dt = new DataTable();
+               adapter.Fill(dt);
+               cbClases.DataSource = dt;
+               cbClases.ValueMember = "ID_Clase";
+               cbClases.DisplayMember = "Nombre";
+               mysql.Close();
+               //Llenar el otro comboBox de Clientes para asignar clase dentro de la tabla clase
+               //Se prefiere usar consulta JOIN de clientes y persona
+               mysql.Open();
+               query = new MySqlCommand("SELECT cliente.ID_Cliente,concat(persona.Nombre,' ',persona.Apellido_Paterno)AS NombreCompleto" +
+                   "FROM cliente JOIN persona on cliente.Persona_ID=persona.ID_Cliente",mysql);
+               adapter = new MySqlDataAdapter(query);
+               dt = new DataTable();
+               adapter.Fill(dt);
+               cbClientes.DataSource = dt;
+               cbClientes.ValueMember = "ID_Cliente";
+               cbClientes.DisplayMember = "NombreCompleto";
+               mysql.Close();
+               */
         private void btnAñadir_Click(object sender, EventArgs e)
         {
             try
             {
+                MySqlCommand comando = new MySqlCommand("SELECT COUNT(*)FROM clase WHERE Tipo_Clase=");
+                string disponible = "Disponible";
                 conn.Open();
-                MySqlCommand query = new MySqlCommand("INSERT INTO clase(Entrenador_ID,Nombre,Descripcion,Capacidad_Maxima,Tipo_Clase)" +
-                    "VALUES(@entrenador,@nombre,@descripcion,@capacidad,@tipo)", conn);
+                MySqlCommand query = new MySqlCommand("INSERT INTO clase(Entrenador_ID,Cliente_ID,Nombre,Capacidad_Maxima,Tipo_Clase,Estado_Clase,Vacante)" +
+                    "VALUES(@entrenador,@cliente,@nombre,@capacidad,@tipo,@estado,@vacante)", conn);
                 query.Parameters.AddWithValue("@entrenador", cbEntrenador.SelectedValue);
+                query.Parameters.AddWithValue("@cliente", cbCliente.SelectedValue);
                 query.Parameters.AddWithValue("@nombre", tbNombre.Text);
-                query.Parameters.AddWithValue("@descripcion", tbDescripcion.Text);
                 query.Parameters.AddWithValue("@capacidad", tbCapacidad.Text);
-                query.Parameters.AddWithValue("@tipo", cbTipo.SelectedItem.ToString());
+                query.Parameters.AddWithValue("@tipo", cbTipo.SelectedItem);
+                query.Parameters.AddWithValue("@estado",cbEstado.SelectedItem);
+                query.Parameters.AddWithValue("@vacante",disponible);
                 query.ExecuteNonQuery();
                 conn.Close();
             }

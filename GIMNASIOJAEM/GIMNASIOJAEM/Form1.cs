@@ -29,6 +29,11 @@ namespace GIMNASIOJAEM
             this.Hide();
             
         }
+        public void guardarUsuario(Label usuario)
+        {
+            string name = tbUserName.Text;
+            usuario.Text = name;
+        }
         class CMD
         {
             public void seleccionarUsuario(string nombre, string contraseña)
@@ -58,6 +63,11 @@ namespace GIMNASIOJAEM
                             Principal menu = new Principal();
                             menu.Show();
                            
+                        }
+                        else if (dt.Rows[0][1].ToString()=="Entrenador" || dt.Rows[0][1].ToString() == "entrenador")
+                        {
+                            Principal menu = new Principal();
+                            menu.Show();
                         }
                         else
                         {

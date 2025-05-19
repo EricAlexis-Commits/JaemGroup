@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GIMNASIOJAEM.Codificacion;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -46,6 +47,9 @@ namespace GIMNASIOJAEM.Apariencia
 
         private void Principal_Load(object sender, EventArgs e)
         {
+            Form1 usuarioNombre = new Form1();
+            usuarioNombre.guardarUsuario(lblUsername);
+            MembresiaHelper.actualizarEstadosMembresia();
 
         }
 
@@ -138,6 +142,16 @@ namespace GIMNASIOJAEM.Apariencia
         private void btnClientes_Click(object sender, EventArgs e)
         {
             abrirpanelHijo(new Clientes());
+        }
+
+        private void btnMembresias_Click(object sender, EventArgs e)
+        {
+            abrirpanelHijo(new Membresia());
+        }
+
+        private void btnInicio_Click(object sender, EventArgs e)
+        {
+            abrirpanelHijo(new Inicio());
         }
     }
 }

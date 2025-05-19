@@ -28,13 +28,50 @@ namespace GIMNASIOJAEM.Apariencia
 
         private void Clase_Load(object sender, EventArgs e)
         {
-            mysql.Open();
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM clase",mysql);
-            MySqlDataAdapter data = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            data.Fill(dt);
-            dgvClase.DataSource = dt;
+            try
+            {
+                mysql.Open();
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM clase", mysql);
+                MySqlDataAdapter data = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                data.Fill(dt);
+                dgvClase.DataSource = dt;
+                mysql.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+           
 
+        }
+
+        private void btnCapacity_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string estado = "Activa";
+                string vacante = "Disponible";
+                mysql.Open();
+                MySqlCommand query = new MySqlCommand($"SELECT Nombre,Tipo_Clase,Estado_Clase,Vacante FROM clase WHERE Estado_Clase={estado} AND Vacante={vacante}", mysql);
+                MySqlDataAdapter data = new MySqlDataAdapter(query);
+                DataTable dt = new DataTable();
+                data.Fill(dt);
+                dgvClase.DataSource = dt;
+                mysql.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+
+        }
+
+        private void btnAddCustomer_Click(object sender, EventArgs e)
+        {
+            asignarClase asignacion = new asignarClase();
+            asignacion.ShowDialog();
         }
     }
 }
