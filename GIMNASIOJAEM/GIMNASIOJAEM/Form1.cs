@@ -25,15 +25,12 @@ namespace GIMNASIOJAEM
         {
 
             CMD logear = new CMD();
+            Sension.usuarioActual = tbUserName.Text;
             logear.seleccionarUsuario(tbUserName.Text,tbUserPassword.Text);
             this.Hide();
             
         }
-        public void guardarUsuario(Label usuario)
-        {
-            string name = tbUserName.Text;
-            usuario.Text = name;
-        }
+        
         class CMD
         {
             public void seleccionarUsuario(string nombre, string contraseña)
@@ -42,7 +39,7 @@ namespace GIMNASIOJAEM
                 {
                     //Abrimos primeramente la base de datos
                     mysql.Open();
-                    MySqlCommand consulta = new MySqlCommand("SELECT Nombre_Usuario, Tipo_Usuario FROM usuario WHERE Nombre_Usuario= @nombre AND Contraseña=@contraseña", mysql);
+                    MySqlCommand consulta = new MySqlCommand("SELECT Nombre_Usuario, Tipo_Usuario,Estado FROM usuario WHERE Nombre_Usuario= @nombre AND Contraseña=@contraseña AND Estado='Activo'", mysql);
                     consulta.Parameters.AddWithValue("@nombre", nombre);
                     consulta.Parameters.AddWithValue("@contraseña", contraseña);
                     
@@ -53,6 +50,7 @@ namespace GIMNASIOJAEM
                     {
                         if (dt.Rows[0][1].ToString() == "Administrador" || dt.Rows[0][1].ToString() == "administrador")
                         {
+                            
                             Principal menu = new Principal();
                             menu.Show();
                             
@@ -74,6 +72,10 @@ namespace GIMNASIOJAEM
                             MessageBox.Show("No se encontro ese usuario");
                             
                         }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usuario no encontrado");
                     }
                     mysql.Close();
                     

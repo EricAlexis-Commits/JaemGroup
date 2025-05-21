@@ -47,9 +47,7 @@ namespace GIMNASIOJAEM.Apariencia
 
         private void Principal_Load(object sender, EventArgs e)
         {
-            Form1 usuarioNombre = new Form1();
-            usuarioNombre.guardarUsuario(lblUsername);
-            MembresiaHelper.actualizarEstadosMembresia();
+            lblUsername.Text = Sension.usuarioActual;
 
         }
 
@@ -152,6 +150,12 @@ namespace GIMNASIOJAEM.Apariencia
         private void btnInicio_Click(object sender, EventArgs e)
         {
             abrirpanelHijo(new Inicio());
+        }
+
+        private void btnPago_Click(object sender, EventArgs e)
+        {
+            Pagos formPagos = new Pagos();
+            formPagos.ShowDialog();
         }
     }
 }
