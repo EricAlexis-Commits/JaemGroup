@@ -104,11 +104,23 @@
     <Compile Include="Apariencia\agregarDatos.Designer.cs">
       <DependentUpon>agregarDatos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Apariencia\asignamientoEntrenador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apariencia\asignamientoEntrenador.Designer.cs">
+      <DependentUpon>asignamientoEntrenador.cs</DependentUpon>
+    </Compile>
     <Compile Include="Apariencia\asignarClase.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Apariencia\asignarClase.Designer.cs">
       <DependentUpon>asignarClase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apariencia\Asistencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apariencia\Asistencia.Designer.cs">
+      <DependentUpon>Asistencia.cs</DependentUpon>
     </Compile>
     <Compile Include="Apariencia\Clase.cs">
       <SubType>Form</SubType>
@@ -127,6 +139,12 @@
     </Compile>
     <Compile Include="Apariencia\crearClase.Designer.cs">
       <DependentUpon>crearClase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apariencia\crearRutina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apariencia\crearRutina.Designer.cs">
+      <DependentUpon>crearRutina.cs</DependentUpon>
     </Compile>
     <Compile Include="Apariencia\crearUsuario.cs">
       <SubType>Form</SubType>
@@ -200,6 +218,12 @@
     <Compile Include="Apariencia\registroCliente.Designer.cs">
       <DependentUpon>registroCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Apariencia\Rutinas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apariencia\Rutinas.Designer.cs">
+      <DependentUpon>Rutinas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Apariencia\Usuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,6 +231,7 @@
       <DependentUpon>Usuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Codificacion\MembresiaHelper.cs" />
+    <Compile Include="Codificacion\pagosDatos.cs" />
     <Compile Include="Codificacion\Sension.cs" />
     <Compile Include="Codificacion\SQL.cs" />
     <Compile Include="crearMembresia.cs">
@@ -226,8 +251,14 @@
     <EmbeddedResource Include="Apariencia\agregarDatos.resx">
       <DependentUpon>agregarDatos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Apariencia\asignamientoEntrenador.resx">
+      <DependentUpon>asignamientoEntrenador.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Apariencia\asignarClase.resx">
       <DependentUpon>asignarClase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apariencia\Asistencia.resx">
+      <DependentUpon>Asistencia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apariencia\Clase.resx">
       <DependentUpon>Clase.cs</DependentUpon>
@@ -237,6 +268,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Apariencia\crearClase.resx">
       <DependentUpon>crearClase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apariencia\crearRutina.resx">
+      <DependentUpon>crearRutina.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apariencia\crearUsuario.resx">
       <DependentUpon>crearUsuario.cs</DependentUpon>
@@ -273,6 +307,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Apariencia\registroCliente.resx">
       <DependentUpon>registroCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apariencia\Rutinas.resx">
+      <DependentUpon>Rutinas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apariencia\Usuario.resx">
       <DependentUpon>Usuario.cs</DependentUpon>

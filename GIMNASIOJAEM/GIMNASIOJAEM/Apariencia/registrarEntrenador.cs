@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,19 +18,16 @@ namespace GIMNASIOJAEM.Apariencia
         {
             InitializeComponent();
         }
-       
+        string rutaFinal = "";
+        MySqlConnection mysql = new MySqlConnection("server = 127.0.0.1; user = root; database = gimnasios; password =;");
         private void label3_Click(object sender, EventArgs e)
         {
 
         }
-        
-        
-
         private void registrarEntrenador_Load(object sender, EventArgs e)
         {
             try
-            {
-                MySqlConnection mysql = new MySqlConnection("server = 127.0.0.1; user = root; database = gimnasios; password =;");
+            {   
                 mysql.Open();
                 MySqlCommand comm = new MySqlCommand("SELECT Clave_Usuario,concat(Nombre_Usuario,' ',Tipo_Usuario)AS Nombre_Usuario FROM usuario",mysql);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(comm);
@@ -44,29 +42,48 @@ namespace GIMNASIOJAEM.Apariencia
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
             
+        }
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            //Validacion de campos aqui 
+            mysql.Open();
+            MySqlCommand insert = new MySqlCommand("INSERT INTO entrenador(Usuario_ID,Nombre,Apellido_Paterno,Apellido_Materno,Especialidad,Certificacion)" +
+                "VALUES(@usuario,@nombre,@apellidoP,@apellidoM,@especialidad,@certificado)",mysql);
+            insert.Parameters.AddWithValue("@usuario",cbUsuarios.SelectedValue);
+            insert.Parameters.AddWithValue("@nombre",tbNombre.Text);
+            insert.Parameters.AddWithValue("@apellidoP",tbPaterno.Text);
+            insert.Parameters.AddWithValue("@apellidoM",tbMaterno.Text);
+            insert.Parameters.AddWithValue("@especialidad",cbEspecialidad.SelectedItem);
+            insert.Parameters.AddWithValue("@certificado",rutaFinal);
+            insert.ExecuteNonQuery();
+            mysql.Close();
+        }
+        private void cbUsuarios_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void btnAgregarImagen_Click(object sender, EventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.Filter = "Archivos de Imagen |*.jpg;*.png;*.jpeg;*.bmp";
             if (dialog.ShowDialog() == DialogResult.OK)
             {
+                string nombreArchivo = Path.GetFileName(dialog.FileName);
+                string carpetaDestino = @"D:\Imágenes\Clientes";
+                if (!Directory.Exists(carpetaDestino))
+                {
+                    Directory.CreateDirectory(carpetaDestino);
+
+                }
+                rutaFinal = Path.Combine(carpetaDestino, nombreArchivo);
+                File.Copy(dialog.FileName,rutaFinal,true);
                 pbCertificado.ImageLocation = dialog.FileName;
             }
             pbCertificado.SizeMode = PictureBoxSizeMode.StretchImage;
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cbUsuarios_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

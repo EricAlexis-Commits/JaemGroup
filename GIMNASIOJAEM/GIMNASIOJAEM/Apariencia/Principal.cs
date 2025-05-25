@@ -157,5 +157,15 @@ namespace GIMNASIOJAEM.Apariencia
             Pagos formPagos = new Pagos();
             formPagos.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            abrirpanelHijo(new Asistencia());
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            abrirpanelHijo(new Rutinas());
+        }
     }
 }
