@@ -34,7 +34,7 @@ namespace GIMNASIOJAEM.Apariencia
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error");
+                MessageBox.Show(ex.ToString());
             }
         }
 

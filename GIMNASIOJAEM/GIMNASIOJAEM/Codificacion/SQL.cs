@@ -31,7 +31,7 @@ namespace GIMNASIOJAEM.Codificacion
                 }
                 catch (Exception ex) 
                 {
-                    Console.WriteLine("Error al llenar el datatable");
+                    Console.WriteLine(ex.ToString());
                 }
                 finally
                 {

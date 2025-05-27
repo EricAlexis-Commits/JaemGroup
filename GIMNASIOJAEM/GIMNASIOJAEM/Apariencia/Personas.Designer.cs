@@ -38,6 +38,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvPersonas = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersonas)).BeginInit();
@@ -45,7 +46,7 @@
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(44, 39);
+            this.btnNuevo.Location = new System.Drawing.Point(44, 58);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(138, 23);
             this.btnNuevo.TabIndex = 1;
@@ -56,7 +57,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(350, 40);
+            this.btnEliminar.Location = new System.Drawing.Point(350, 58);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(140, 23);
             this.btnEliminar.TabIndex = 3;
@@ -67,7 +68,7 @@
             // 
             // tbBusqueda
             // 
-            this.tbBusqueda.Location = new System.Drawing.Point(567, 42);
+            this.tbBusqueda.Location = new System.Drawing.Point(567, 58);
             this.tbBusqueda.Name = "tbBusqueda";
             this.tbBusqueda.Size = new System.Drawing.Size(183, 20);
             this.tbBusqueda.TabIndex = 6;
@@ -75,7 +76,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(506, 44);
+            this.label1.Location = new System.Drawing.Point(506, 63);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 7;
@@ -83,7 +84,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(765, 42);
+            this.btnBuscar.Location = new System.Drawing.Point(756, 58);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(112, 23);
             this.btnBuscar.TabIndex = 8;
@@ -94,7 +95,7 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(188, 39);
+            this.btnEditar.Location = new System.Drawing.Point(188, 58);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(156, 23);
             this.btnEditar.TabIndex = 9;
@@ -105,6 +106,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.btnNuevo);
             this.panel1.Controls.Add(this.btnBuscar);
             this.panel1.Controls.Add(this.btnEditar);
@@ -132,6 +134,7 @@
             this.dgvPersonas.AllowUserToDeleteRows = false;
             this.dgvPersonas.AllowUserToResizeColumns = false;
             this.dgvPersonas.AllowUserToResizeRows = false;
+            this.dgvPersonas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPersonas.BackgroundColor = System.Drawing.Color.RoyalBlue;
             this.dgvPersonas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -148,6 +151,16 @@
             this.dgvPersonas.Name = "dgvPersonas";
             this.dgvPersonas.Size = new System.Drawing.Size(975, 377);
             this.dgvPersonas.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(23, 19);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(116, 26);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "PERSONAS";
             // 
             // Personas
             // 
@@ -178,5 +191,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dgvPersonas;
+        private System.Windows.Forms.Label label2;
     }
 }

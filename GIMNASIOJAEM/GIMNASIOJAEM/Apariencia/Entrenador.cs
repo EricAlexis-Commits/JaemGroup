@@ -35,5 +35,37 @@ namespace GIMNASIOJAEM.Apariencia
             dataAdapter.Fill(dataTable);
             dgvEntrenador.DataSource = dataTable;
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            especialidadCertificacion especialidad = new especialidadCertificacion();
+            especialidad.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //Llena el datagridview con datos de una consulta o clausla join de la tabla
+            //Entrenador, Rutina y Clase
+            mysql.Open();
+            using (MySqlCommand join=new MySqlCommand("SELECT entrenador.Nombre,entrenador.Apellido_Paterno,entrenador.Apellido_Materno,rutina.Nombre_Rutina,clase.Nombre FROM entrenador JOIN rutina ON rutina.Entrenador_ID=entrenador.ID_Entrenador JOIN clase ON clase.Entrenador_ID=entrenador.ID_Entrenador;", mysql))
+            {
+                MySqlDataAdapter mysqlAdapter = new MySqlDataAdapter(join);
+                DataTable table = new DataTable();
+                mysqlAdapter.Fill(table);
+                dgvEntrenador.DataSource = table;
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            mysql.Open();
+            using (MySqlCommand rutinaJoin=new MySqlCommand("SELECT `Nombre_Entrenador`,`Apellido_Paterno`,`Especialidad`,rutina.Nombre_Rutina,rutina.Objetivo FROM entrenador JOIN rutina ON rutina.Entrenador_ID=entrenador.ID_Entrenador;", mysql))
+            {
+                MySqlDataAdapter adapt = new MySqlDataAdapter(rutinaJoin);
+                DataTable dataTables = new DataTable();
+                adapt.Fill(dataTables);
+                dgvEntrenador.DataSource=dataTables;
+            }
+        }
     }
 }

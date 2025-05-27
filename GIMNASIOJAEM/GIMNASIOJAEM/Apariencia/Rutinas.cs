@@ -25,7 +25,7 @@ namespace GIMNASIOJAEM.Apariencia
 
         private void button2_Click(object sender, EventArgs e)
         {
-            asignarEntrenador asignamiento = new asignarEntrenador();
+            asignamientoEntrenador asignamiento = new asignamientoEntrenador();
             asignamiento.ShowDialog();
         }
     }

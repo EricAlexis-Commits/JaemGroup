@@ -170,6 +170,12 @@
     <Compile Include="Apariencia\Entrenador.Designer.cs">
       <DependentUpon>Entrenador.cs</DependentUpon>
     </Compile>
+    <Compile Include="Apariencia\especialidadCertificacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apariencia\especialidadCertificacion.Designer.cs">
+      <DependentUpon>especialidadCertificacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Apariencia\Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -283,6 +289,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Apariencia\Entrenador.resx">
       <DependentUpon>Entrenador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apariencia\especialidadCertificacion.resx">
+      <DependentUpon>especialidadCertificacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apariencia\Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>

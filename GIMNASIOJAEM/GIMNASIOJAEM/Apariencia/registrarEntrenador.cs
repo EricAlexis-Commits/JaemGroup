@@ -29,13 +29,13 @@ namespace GIMNASIOJAEM.Apariencia
             try
             {   
                 mysql.Open();
-                MySqlCommand comm = new MySqlCommand("SELECT Clave_Usuario,concat(Nombre_Usuario,' ',Tipo_Usuario)AS Nombre_Usuario FROM usuario",mysql);
+                MySqlCommand comm = new MySqlCommand("SELECT ID_Usuario,concat(Nombre_Usuario,' ',Tipo_Usuario)AS NombredeUsuario FROM usuario WHERE Tipo_Usuario='Entrenador'",mysql);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 cbUsuarios.DataSource = dt;
-                cbUsuarios.ValueMember = "Clave_Usuario";
-                cbUsuarios.DisplayMember = "Nombre_Usuario";
+                cbUsuarios.ValueMember = "ID_Usuario";
+                cbUsuarios.DisplayMember = "NombredeUsuario";
                 mysql.Close();
             }
             catch(Exception ex)
@@ -49,18 +49,30 @@ namespace GIMNASIOJAEM.Apariencia
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            //Validacion de campos aqui 
-            mysql.Open();
-            MySqlCommand insert = new MySqlCommand("INSERT INTO entrenador(Usuario_ID,Nombre,Apellido_Paterno,Apellido_Materno,Especialidad,Certificacion)" +
-                "VALUES(@usuario,@nombre,@apellidoP,@apellidoM,@especialidad,@certificado)",mysql);
-            insert.Parameters.AddWithValue("@usuario",cbUsuarios.SelectedValue);
-            insert.Parameters.AddWithValue("@nombre",tbNombre.Text);
-            insert.Parameters.AddWithValue("@apellidoP",tbPaterno.Text);
-            insert.Parameters.AddWithValue("@apellidoM",tbMaterno.Text);
-            insert.Parameters.AddWithValue("@especialidad",cbEspecialidad.SelectedItem);
-            insert.Parameters.AddWithValue("@certificado",rutaFinal);
-            insert.ExecuteNonQuery();
-            mysql.Close();
+            try
+            {
+                //Validacion de campos aqui 
+                mysql.Open();
+                MySqlCommand insert = new MySqlCommand("INSERT INTO entrenador(Usuario_ID,Nombre,Apellido_Paterno,Apellido_Materno,Especialidad,Certificacion)" +
+                    "VALUES(@usuario,@nombre,@apellidoP,@apellidoM,@especialidad,@certificado)", mysql);
+                insert.Parameters.AddWithValue("@usuario", cbUsuarios.SelectedValue);
+                insert.Parameters.AddWithValue("@nombre", tbNombre.Text);
+                insert.Parameters.AddWithValue("@apellidoP", tbPaterno.Text);
+                insert.Parameters.AddWithValue("@apellidoM", tbMaterno.Text);
+                insert.Parameters.AddWithValue("@especialidad", cbEspecialidad.SelectedItem);
+                insert.Parameters.AddWithValue("@certificado", rutaFinal);
+                insert.ExecuteNonQuery();
+                mysql.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                this.Close();
+            }
+            
         }
         private void cbUsuarios_SelectedIndexChanged(object sender, EventArgs e)
         {
