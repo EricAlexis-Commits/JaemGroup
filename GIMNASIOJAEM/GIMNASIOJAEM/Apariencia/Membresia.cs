@@ -23,17 +23,58 @@ namespace GIMNASIOJAEM.Apariencia
         {
             crearMembresia crear = new crearMembresia();
             crear.ShowDialog();
+            refreshDGV();
         }
 
         private void Membresia_Load(object sender, EventArgs e)
         {
             mysql.Open();
-            MySqlCommand query = new MySqlCommand("SELECT Cliente_ID,Tipo_Membresia,Fecha_Inicio,Fecha_Vencimiento,Estatus_Membresia FROM membresia",mysql);
+            MySqlCommand query = new MySqlCommand("SELECT Cliente_ID,concat(persona.Nombre,' ',persona.Apellido_Paterno,' ',persona.Apellido_Materno)AS NombredeCliente,Tipo_Membresia,Fecha_Inicio,Fecha_Vencimiento,Estatus_Membresia FROM membresia JOIN cliente ON cliente.ID_Cliente=membresia.Cliente_ID JOIN persona ON persona.ID_Persona=cliente.Persona_ID",mysql);
             MySqlDataAdapter adapt = new MySqlDataAdapter(query);
             DataTable data = new DataTable();
             adapt.Fill(data);
             dgvMembresia.DataSource = data;
         }
-        
+        private void refreshDGV()
+        {
+            using (MySqlConnection mysql=new MySqlConnection(conexion))
+            {
+                mysql.Open();
+                using (MySqlCommand refresh=new MySqlCommand("SELECT Cliente_ID,concat(persona.Nombre,' ',persona.Apellido_Paterno,' ',persona.Apellido_Materno)AS NombredeCliente,Tipo_Membresia,Fecha_Inicio,Fecha_Vencimiento,Estatus_Membresia FROM membresia JOIN cliente ON cliente.ID_Cliente=membresia.Cliente_ID JOIN persona ON persona.ID_Persona=cliente.Persona_ID",mysql))
+                {
+                    MySqlDataAdapter adapt = new MySqlDataAdapter(refresh);
+                    DataTable dt = new DataTable();
+                    adapt.Fill(dt);
+                    dgvMembresia.DataSource = dt;
+                }
+            }
+        }
+
+        private void btnFechas_Click(object sender, EventArgs e)
+        {
+            fechasMembresias fechas = new fechasMembresias();
+            fechas.ShowDialog();
+        }
+
+        private void btnEstatus_Click(object sender, EventArgs e)
+        {
+            using (MySqlConnection mysql=new MySqlConnection(conexion))
+            {
+                mysql.Open();
+                using (MySqlCommand estatus=new MySqlCommand("SELECT ID_Membresia,Cliente_ID,concat(persona.Nombre,' ',persona.Apellido_Paterno,' ',persona.Apellido_Materno)AS NombredeCliente FROM membresia JOIN cliente ON cliente.ID_Cliente=membresia.Cliente_ID JOIN persona ON persona.ID_Persona=cliente.Persona_ID",mysql))
+                {
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(estatus);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dgvMembresia.DataSource = dt;
+                }
+            }
+        }
+
+        private void btnPagar_Click(object sender, EventArgs e)
+        {
+            Pagos pagar = new Pagos();
+            pagar.ShowDialog();
+        }
     }
 }

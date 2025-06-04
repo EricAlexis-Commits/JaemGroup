@@ -85,7 +85,7 @@ namespace GIMNASIOJAEM
             {
                 DateTime fechaInicial = Convert.ToDateTime(dtpInicio.Value.Date.ToString());
                 DateTime fechaFinal = Convert.ToDateTime(dtpVencimiento.Value.Date.ToString());
-                string estatus = "Activa";
+                string estatus = "Inactiva";
                 mysql.Open();
                 MySqlCommand cmd = new MySqlCommand("INSERT INTO membresia(Cliente_ID,Tipo_Membresia,Fecha_Inicio,Fecha_Vencimiento,Estatus_Membresia) " +
                     "VALUES(@cliente,@tipo,@fechaInicio,@fechaVencimiento,@estatusMembresia)", mysql);

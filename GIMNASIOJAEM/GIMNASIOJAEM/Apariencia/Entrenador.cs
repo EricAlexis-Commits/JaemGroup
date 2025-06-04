@@ -23,17 +23,19 @@ namespace GIMNASIOJAEM.Apariencia
         {
             registrarEntrenador registro = new registrarEntrenador();
             registro.ShowDialog();
+            refresDGV();
             
         }
 
         private void Entrenador_Load(object sender, EventArgs e)
         {
             mysql.Open();
-            MySqlCommand command = new MySqlCommand("SELECT Nombre,Apellido_Paterno,Apellido_Materno,Especialidad FROM entrenador",mysql);
+            MySqlCommand command = new MySqlCommand("SELECT Nombre_Entrenador,Apellido_Paterno,Apellido_Materno,Especialidad FROM entrenador",mysql);
             MySqlDataAdapter dataAdapter = new MySqlDataAdapter(command);
             DataTable dataTable= new DataTable();
             dataAdapter.Fill(dataTable);
             dgvEntrenador.DataSource = dataTable;
+            mysql.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -47,24 +49,40 @@ namespace GIMNASIOJAEM.Apariencia
             //Llena el datagridview con datos de una consulta o clausla join de la tabla
             //Entrenador, Rutina y Clase
             mysql.Open();
-            using (MySqlCommand join=new MySqlCommand("SELECT entrenador.Nombre,entrenador.Apellido_Paterno,entrenador.Apellido_Materno,rutina.Nombre_Rutina,clase.Nombre FROM entrenador JOIN rutina ON rutina.Entrenador_ID=entrenador.ID_Entrenador JOIN clase ON clase.Entrenador_ID=entrenador.ID_Entrenador;", mysql))
+            using (MySqlCommand join=new MySqlCommand("SELECT Nombre_Entrenador,Apellido_Paterno,Apellido_Materno,rutina.Nombre_Rutina,clase.Nombre_Clase FROM entrenador JOIN rutina ON rutina.Entrenador_ID=entrenador.ID_Entrenador LEFT JOIN clase ON clase.Entrenador_ID=entrenador.ID_Entrenador", mysql))
             {
                 MySqlDataAdapter mysqlAdapter = new MySqlDataAdapter(join);
                 DataTable table = new DataTable();
                 mysqlAdapter.Fill(table);
                 dgvEntrenador.DataSource = table;
             }
+            mysql.Close();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             mysql.Open();
-            using (MySqlCommand rutinaJoin=new MySqlCommand("SELECT `Nombre_Entrenador`,`Apellido_Paterno`,`Especialidad`,rutina.Nombre_Rutina,rutina.Objetivo FROM entrenador JOIN rutina ON rutina.Entrenador_ID=entrenador.ID_Entrenador;", mysql))
+            using (MySqlCommand rutinaJoin=new MySqlCommand("SELECT Nombre_Entrenador,Apellido_Paterno,Especialidad,rutina.Nombre_Rutina,rutina.Objetivo FROM entrenador JOIN rutina ON rutina.Entrenador_ID=entrenador.ID_Entrenador;", mysql))
             {
                 MySqlDataAdapter adapt = new MySqlDataAdapter(rutinaJoin);
                 DataTable dataTables = new DataTable();
                 adapt.Fill(dataTables);
                 dgvEntrenador.DataSource=dataTables;
+            }
+            mysql.Close();
+        }
+        private void refresDGV()
+        {
+            using (MySqlConnection mysql=new MySqlConnection(conexion))
+            {
+                mysql.Open();
+                using (MySqlCommand refresh=new MySqlCommand("SELECT Nombre_Entrenador,Apellido_Paterno,Apellido_Materno,Especialidad FROM entrenador",mysql))
+                {
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(refresh);
+                    DataTable table= new DataTable();
+                    adapter.Fill(table);
+                    dgvEntrenador.DataSource=table;
+                }
             }
         }
     }

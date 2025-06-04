@@ -26,7 +26,7 @@ namespace GIMNASIOJAEM.Apariencia
             using (MySqlConnection conn = new MySqlConnection(conexion))
             {
                 conn.Open();
-                MySqlCommand query = new MySqlCommand("SELECT ID_Entrenador,concat(entrenador.Nombre,' ',entrenador.Apellido_Paterno)AS NombreEntrenador FROM entrenador",conn);
+                MySqlCommand query = new MySqlCommand("SELECT ID_Entrenador,concat(Nombre_Entrenador,' ',Apellido_Paterno)AS NombreEntrenador FROM entrenador",conn);
                 MySqlDataAdapter adapt = new MySqlDataAdapter(query);
                 DataTable dt = new DataTable();
                 adapt.Fill(dt);

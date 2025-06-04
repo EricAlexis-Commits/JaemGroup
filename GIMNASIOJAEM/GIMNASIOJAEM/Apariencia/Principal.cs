@@ -18,6 +18,7 @@ namespace GIMNASIOJAEM.Apariencia
         {
             InitializeComponent();
         }
+        Button[] botones;
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -47,8 +48,28 @@ namespace GIMNASIOJAEM.Apariencia
 
         private void Principal_Load(object sender, EventArgs e)
         {
-            lblUsername.Text = Sension.usuarioActual;
+            botones = new Button[] {btnInicio,btnPersonas,btnUsuario,btnEntrenador,btnClientes,btnClases,btnMembresias,btnPago,btnAsistencia,btnRutinas };
+            if (Sension.permisoUsuario=="Entrenador")
+            {
+                
+                btnPersonas.Enabled = false;
+                btnUsuario.Enabled = false;
+                btnClientes.Enabled = false;
+                btnMembresias.Enabled = false;
+                btnPago.Enabled = false;
+                btnAsistencia.Enabled = false;
 
+                btnPersonas.BackColor = Color.Red;
+                btnUsuario.BackColor = Color.Red;
+                btnClientes.BackColor = Color.Red;
+                btnMembresias.BackColor = Color.Red;
+                btnPago.BackColor = Color.Red;
+                btnAsistencia.BackColor= Color.Red;
+
+            }
+            lblUser.Text = Sension.usuarioActual;
+            abrirpanelHijo(new Inicio());
+            
         }
 
         private void btnUsuario_Click(object sender, EventArgs e)
@@ -166,6 +187,128 @@ namespace GIMNASIOJAEM.Apariencia
         private void button2_Click(object sender, EventArgs e)
         {
             abrirpanelHijo(new Rutinas());
+        }
+
+        private void btnClientes_Click_1(object sender, EventArgs e)
+        {
+            abrirpanelHijo(new Clientes());
+        }
+
+        private void btnPersonas_Click_1(object sender, EventArgs e)
+        {
+            abrirpanelHijo(new Personas());
+        }
+
+        private void lblUsername_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMembresias_Click_1(object sender, EventArgs e)
+        {
+            abrirpanelHijo(new Membresia());
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUsuario_Click_1(object sender, EventArgs e)
+        {
+            abrirpanelHijo(new Usuario());
+        }
+
+        private void btnAsistencia_Click_1(object sender, EventArgs e)
+        {
+            abrirpanelHijo(new Clase());
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            abrirpanelHijo(new Rutinas());
+        }
+
+        private void btnPago_Click_1(object sender, EventArgs e)
+        {
+            Pagos pagar = new Pagos();
+            pagar.ShowDialog();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEntrenador_Click_1(object sender, EventArgs e)
+        {
+            abrirpanelHijo(new Entrenador());
+        }
+
+        private void btnInicio_Click_1(object sender, EventArgs e)
+        {
+            abrirpanelHijo(new Inicio());
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            abrirpanelHijo(new Asistencia());
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void ajustarAncho()
+        {
+            var botones = panel1.Controls.OfType<Button>().ToList();
+            int altoDisponible = panel1.Width - 20;
+            int anchoPorBoton = altoDisponible / botones.Count;
+            for (int i=0; i<botones.Count; i++)
+            {
+                botones[i].Width = anchoPorBoton;
+                botones[i].Left = i * anchoPorBoton + 10;
+            }
+        }
+
+        private void Principal_Resize(object sender, EventArgs e)
+        {
+            ajustarAncho();
         }
     }
 }

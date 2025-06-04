@@ -69,5 +69,37 @@ namespace GIMNASIOJAEM.Apariencia
             }
             return true;
         }
+
+        private void crearUsuario_Load(object sender, EventArgs e)
+        {
+            Usuario usuarios = new Usuario();
+            if (usuarios.editar == true)
+            {
+                btnEditar.Visible = usuarios.editar;
+            }
+            else
+            {
+                btnEditar.Visible = usuarios.editar;
+            }
+
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            using (MySqlConnection mysql=new MySqlConnection(conexion))
+            {
+                DateTime fecha = Convert.ToDateTime(dtpDate.Value.Date.ToString("dd:MM:yyyy"));
+                mysql.Open();
+                using (MySqlCommand edit=new MySqlCommand("UPDATE usuario SET Nombre_Usuario=@nombre,Tipo_Usuario=@tipo,Fecha_Registro=@fecha,Contraseña=@contraseña WHERE Clave_Usuario=@claveUser",mysql))
+                {
+                    edit.Parameters.AddWithValue("@nombre",tbName.Text);
+                    edit.Parameters.AddWithValue("@tipo",cbUserType.SelectedItem);
+                    edit.Parameters.AddWithValue("@fecha",fecha);
+                    edit.Parameters.AddWithValue("@contraseña",tbPassword.Text);
+                    edit.Parameters.AddWithValue("@claveUser", tbCode.Text);
+                    edit.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }

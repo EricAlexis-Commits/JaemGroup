@@ -24,6 +24,9 @@ namespace GIMNASIOJAEM.Apariencia
 
         private void Inicio_Load(object sender, EventArgs e)
         {
+            pbLogo1.Image = Image.FromFile(@"D:\Documentos\Semestre 4\Ingenieria Software I\imagenes\LogoGym2-removebg-preview.png");
+            pbLogo2.Image = Image.FromFile(@"D:\Documentos\Semestre 4\Ingenieria Software I\imagenes\LogoGYM-removebg-preview.png");
+           
             try
             {
                 int cantidadClientes = 0;
@@ -33,7 +36,7 @@ namespace GIMNASIOJAEM.Apariencia
                 conexion.Open();
                 cantidadClientes = Convert.ToInt32(new MySqlCommand("SELECT COUNT(*)FROM cliente", conexion).ExecuteScalar());
                 cantidadEntrenadores = Convert.ToInt32(new MySqlCommand("SELECT COUNT(*)FROM entrenador", conexion).ExecuteScalar());
-                cantidadClases = Convert.ToInt32(new MySqlCommand("SELECT COUNT(*)FROM clase WHERE Estado_Clase='Activa'", conexion).ExecuteScalar());
+                cantidadClases = Convert.ToInt32(new MySqlCommand("SELECT COUNT(*)FROM clase WHERE Estado_Clase='Activado'", conexion).ExecuteScalar());
                 cantidadMembresias = Convert.ToInt32(new MySqlCommand("SELECT COUNT(*)FROM membresia WHERE Estatus_Membresia='Activa'", conexion).ExecuteScalar());
                 conexion.Close();
                 lblClientes.Text = cantidadClientes.ToString();

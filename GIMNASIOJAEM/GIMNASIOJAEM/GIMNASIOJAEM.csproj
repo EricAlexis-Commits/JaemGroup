@@ -98,6 +98,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Apariencia\agregarAsistencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apariencia\agregarAsistencia.Designer.cs">
+      <DependentUpon>agregarAsistencia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Apariencia\agregarDatos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,12 @@
     </Compile>
     <Compile Include="Apariencia\asignarClase.Designer.cs">
       <DependentUpon>asignarClase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apariencia\asignarHorariosClase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apariencia\asignarHorariosClase.Designer.cs">
+      <DependentUpon>asignarHorariosClase.cs</DependentUpon>
     </Compile>
     <Compile Include="Apariencia\Asistencia.cs">
       <SubType>Form</SubType>
@@ -158,6 +170,12 @@
     <Compile Include="Apariencia\desactivar.Designer.cs">
       <DependentUpon>desactivar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Apariencia\desactivarClase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apariencia\desactivarClase.Designer.cs">
+      <DependentUpon>desactivarClase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Apariencia\eliminarDatos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,6 +193,30 @@
     </Compile>
     <Compile Include="Apariencia\especialidadCertificacion.Designer.cs">
       <DependentUpon>especialidadCertificacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apariencia\fechasMembresias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apariencia\fechasMembresias.Designer.cs">
+      <DependentUpon>fechasMembresias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apariencia\loading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apariencia\loading.Designer.cs">
+      <DependentUpon>loading.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apariencia\Rutina-Ejercicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apariencia\Rutina-Ejercicio.Designer.cs">
+      <DependentUpon>Rutina-Ejercicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apariencia\rutinasPersonalizadas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apariencia\rutinasPersonalizadas.Designer.cs">
+      <DependentUpon>rutinasPersonalizadas.cs</DependentUpon>
     </Compile>
     <Compile Include="Apariencia\Inicio.cs">
       <SubType>Form</SubType>
@@ -236,10 +278,22 @@
     <Compile Include="Apariencia\Usuario.Designer.cs">
       <DependentUpon>Usuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Apariencia\verContraseña.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apariencia\verContraseña.Designer.cs">
+      <DependentUpon>verContraseña.cs</DependentUpon>
+    </Compile>
     <Compile Include="Codificacion\MembresiaHelper.cs" />
     <Compile Include="Codificacion\pagosDatos.cs" />
     <Compile Include="Codificacion\Sension.cs" />
     <Compile Include="Codificacion\SQL.cs" />
+    <Compile Include="crearEjercicios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="crearEjercicios.Designer.cs">
+      <DependentUpon>crearEjercicios.cs</DependentUpon>
+    </Compile>
     <Compile Include="crearMembresia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -254,6 +308,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Apariencia\agregarAsistencia.resx">
+      <DependentUpon>agregarAsistencia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Apariencia\agregarDatos.resx">
       <DependentUpon>agregarDatos.cs</DependentUpon>
     </EmbeddedResource>
@@ -262,6 +319,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Apariencia\asignarClase.resx">
       <DependentUpon>asignarClase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apariencia\asignarHorariosClase.resx">
+      <DependentUpon>asignarHorariosClase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apariencia\Asistencia.resx">
       <DependentUpon>Asistencia.cs</DependentUpon>
@@ -284,6 +344,9 @@
     <EmbeddedResource Include="Apariencia\desactivar.resx">
       <DependentUpon>desactivar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Apariencia\desactivarClase.resx">
+      <DependentUpon>desactivarClase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Apariencia\eliminarDatos.resx">
       <DependentUpon>eliminarDatos.cs</DependentUpon>
     </EmbeddedResource>
@@ -292,6 +355,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Apariencia\especialidadCertificacion.resx">
       <DependentUpon>especialidadCertificacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apariencia\fechasMembresias.resx">
+      <DependentUpon>fechasMembresias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apariencia\loading.resx">
+      <DependentUpon>loading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apariencia\Rutina-Ejercicio.resx">
+      <DependentUpon>Rutina-Ejercicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apariencia\rutinasPersonalizadas.resx">
+      <DependentUpon>rutinasPersonalizadas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apariencia\Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
@@ -322,6 +397,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Apariencia\Usuario.resx">
       <DependentUpon>Usuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apariencia\verContraseña.resx">
+      <DependentUpon>verContraseña.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crearEjercicios.resx">
+      <DependentUpon>crearEjercicios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="crearMembresia.resx">
       <DependentUpon>crearMembresia.cs</DependentUpon>

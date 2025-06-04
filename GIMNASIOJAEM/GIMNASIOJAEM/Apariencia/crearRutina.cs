@@ -27,14 +27,13 @@ namespace GIMNASIOJAEM.Apariencia
             try
             {
                 mysql.Open();
-                MySqlCommand query = new MySqlCommand("SELECT ID_Cliente,concat(persona.Nombre,' ',persona.Apellido_Paterno)AS NombreCompleto" +
-                    "JOIN persona ON cliente.Persona_ID=persona.ID_Cliente", mysql);
+                MySqlCommand query = new MySqlCommand("SELECT ID_Cliente,concat(persona.Nombre,' ',persona.Apellido_Paterno)AS NombreCompleto FROM cliente JOIN persona ON persona.ID_Persona=cliente.Persona_ID", mysql);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 cbClientes.DataSource = dt;
                 cbClientes.ValueMember = "ID_Cliente";
-                cbClientes.DisplayMember = "Nombre Completo";
+                cbClientes.DisplayMember = "NombreCompleto";
                 mysql.Close();
             }
             catch(Exception ex)
@@ -51,7 +50,7 @@ namespace GIMNASIOJAEM.Apariencia
             if (cbEntrenador.Enabled==true)
             {
                 mysql.Open();
-                MySqlCommand entrenadores = new MySqlCommand("SELECT ID_Entrenador,concat (Nombre,' ',Apellido_Paterno)AS NombreEntrenador FROM entrenador", mysql);
+                MySqlCommand entrenadores = new MySqlCommand("SELECT ID_Entrenador,concat (Nombre_Entrenador,' ',Apellido_Paterno)AS NombreEntrenador FROM entrenador", mysql);
                 MySqlDataAdapter adapt = new MySqlDataAdapter(entrenadores);
                 DataTable dt = new DataTable();
                 adapt.Fill(dt);
@@ -60,9 +59,6 @@ namespace GIMNASIOJAEM.Apariencia
                 cbEntrenador.DisplayMember = "NombreEntrenador";
                 mysql.Close();
             }
-            
-            
-
         }
 
         private void btnCrear_Click(object sender, EventArgs e)
@@ -78,13 +74,17 @@ namespace GIMNASIOJAEM.Apariencia
                     insertar.Parameters.AddWithValue("@nombre", tbRutina.Text);
                     insertar.Parameters.AddWithValue("@fecha",fechaHoy);
                     insertar.Parameters.AddWithValue("@objetivo", tbObjetivo.Text);
+                    insertar.ExecuteNonQuery();
+                    mysql.Close();
                 }
                 catch(Exception ex)
                 {
                     MessageBox.Show(ex.ToString());
                 }
-                
-
+                finally
+                {
+                    this.Close();
+                }
             }
         }
         private bool validacionCampos()

@@ -24,6 +24,11 @@ namespace GIMNASIOJAEM.Apariencia
         SQL query = new SQL(mysql);
         private void Personas_Load(object sender, EventArgs e)
         {
+            if (Sension.permisoUsuario != "Administrador")
+            {
+                btnEliminar.Enabled = false;
+                btnEliminar.BackColor = Color.Red;
+            }
 
             try
             {
@@ -101,6 +106,8 @@ namespace GIMNASIOJAEM.Apariencia
                 mysql.Close();
                 
             }
+            timer1.Start();
+
         }
         public void buscarNombre(DataGridView dgv,TextBox busquedas,string tablas)
         {
@@ -166,6 +173,11 @@ namespace GIMNASIOJAEM.Apariencia
             agregarDatos nuevos = new agregarDatos();
             nuevos.ShowDialog();
             nuevos.revelarDatos();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            
         }
     }
     
