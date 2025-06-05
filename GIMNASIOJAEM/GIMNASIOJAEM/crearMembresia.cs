@@ -48,7 +48,7 @@ namespace GIMNASIOJAEM
             {
                 case "Visita":
                     
-                    fechaVencimiento =dtpVencimiento.Value.Date;
+                    fechaVencimiento =dtpInicio.Value.Date;
                     dtpVencimiento.Value = fechaVencimiento;
                     break;
                 case "Semanal":

@@ -99,5 +99,10 @@ namespace GIMNASIOJAEM.Apariencia
             }
             return false;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            cbEntrenador.Enabled = false;
+        }
     }
 }

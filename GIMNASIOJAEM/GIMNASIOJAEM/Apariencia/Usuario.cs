@@ -99,5 +99,10 @@ namespace GIMNASIOJAEM.Apariencia
             verContraseña verPassword = new verContraseña();
             verPassword.ShowDialog();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -177,6 +177,7 @@
             this.dgvPersonas.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.dgvPersonas.Location = new System.Drawing.Point(4, 7);
             this.dgvPersonas.Name = "dgvPersonas";
+            this.dgvPersonas.RowHeadersVisible = false;
             this.dgvPersonas.Size = new System.Drawing.Size(975, 377);
             this.dgvPersonas.TabIndex = 0;
             // 

@@ -113,6 +113,7 @@ namespace GIMNASIOJAEM.Apariencia
             {
                 MessageBox.Show(ex.ToString());
             }
+            
         }
 
         private void clbDiasSemana_ItemCheck(object sender, ItemCheckEventArgs e)

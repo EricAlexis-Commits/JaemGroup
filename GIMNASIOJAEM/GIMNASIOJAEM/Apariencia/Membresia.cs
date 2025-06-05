@@ -61,7 +61,7 @@ namespace GIMNASIOJAEM.Apariencia
             using (MySqlConnection mysql=new MySqlConnection(conexion))
             {
                 mysql.Open();
-                using (MySqlCommand estatus=new MySqlCommand("SELECT ID_Membresia,Cliente_ID,concat(persona.Nombre,' ',persona.Apellido_Paterno,' ',persona.Apellido_Materno)AS NombredeCliente FROM membresia JOIN cliente ON cliente.ID_Cliente=membresia.Cliente_ID JOIN persona ON persona.ID_Persona=cliente.Persona_ID",mysql))
+                using (MySqlCommand estatus=new MySqlCommand("SELECT m.ID_Membresia,m.Cliente_ID,CONCAT(p.Nombre, ' ', p.Apellido_Paterno, ' ', p.Apellido_Materno) AS NombredeCliente,pg.Estatus_Pago FROM membresia m JOIN cliente c ON c.ID_Cliente = m.Cliente_ID JOIN persona p ON p.ID_Persona = c.Persona_ID JOIN pagos pg ON pg.Membresia_ID = m.ID_Membresia", mysql))
                 {
                     MySqlDataAdapter adapter = new MySqlDataAdapter(estatus);
                     DataTable dt = new DataTable();

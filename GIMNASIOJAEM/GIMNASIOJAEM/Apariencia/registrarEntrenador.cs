@@ -53,7 +53,7 @@ namespace GIMNASIOJAEM.Apariencia
             {
                 //Validacion de campos aqui 
                 mysql.Open();
-                MySqlCommand insert = new MySqlCommand("INSERT INTO entrenador(Usuario_ID,Nombre,Apellido_Paterno,Apellido_Materno,Especialidad,Certificacion)" +
+                MySqlCommand insert = new MySqlCommand("INSERT INTO entrenador(Usuario_ID,Nombre_Entrenador,Apellido_Paterno,Apellido_Materno,Especialidad,Certificacion)" +
                     "VALUES(@usuario,@nombre,@apellidoP,@apellidoM,@especialidad,@certificado)", mysql);
                 insert.Parameters.AddWithValue("@usuario", cbUsuarios.SelectedValue);
                 insert.Parameters.AddWithValue("@nombre", tbNombre.Text);

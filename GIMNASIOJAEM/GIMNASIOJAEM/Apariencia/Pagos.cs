@@ -199,7 +199,7 @@ namespace GIMNASIOJAEM.Apariencia
             Task showLoading = Task.Run(() => cargar.ShowDialog());
             
                 
-                await Task.Delay(10000);
+                await Task.Delay(20000);
             
                 //En base a la seleccion del comboBox de metodo de pago va tener diferentes procesos de pago
             switch (cbMetodo.SelectedItem?.ToString())
@@ -213,6 +213,7 @@ namespace GIMNASIOJAEM.Apariencia
                     }
                     MessageBox.Show("Pago efectivo realizado");
                     dgvPagos.Rows.Clear();
+                    actualizarEstadoMembresia();
                     break;
                 case "Tarjeta":
 
@@ -222,6 +223,7 @@ namespace GIMNASIOJAEM.Apariencia
                         pagoTarjeta(pago);
                     }
                     MessageBox.Show("Pago por tarjeta realizado");
+                    actualizarEstadoMembresia();
                     dgvPagos.Rows.Clear();
                     break;
 
@@ -232,6 +234,7 @@ namespace GIMNASIOJAEM.Apariencia
                         pagoTransferencia(pago);
                     }
                     MessageBox.Show("Pago por transferencia realizado");
+                    actualizarEstadoMembresia();
                     dgvPagos.Rows.Clear();
                     break;
                 default:
@@ -280,15 +283,16 @@ namespace GIMNASIOJAEM.Apariencia
                     dineroPagar = 2500;
                     lblPagar.Text = dineroPagar.ToString();
                     break;
-                case "Mensual Estudiante":
+                case "Mensual Es":
                     dineroPagar = 230;
                     lblPagar.Text = dineroPagar.ToString();
                     break;
-                case "Semestral Estudiante":
+                case "Semestral Es":
                     dineroPagar = 2000;
                     lblPagar.Text = dineroPagar.ToString();
                     break;
                 default:
+
                     dineroPagar = 0;
                     lblPagar.Text = dineroPagar.ToString();
                     break;
@@ -299,22 +303,24 @@ namespace GIMNASIOJAEM.Apariencia
         {
 
         }
-        private void cargar()
+        private void actualizarEstadoMembresia()
         {
-            Thread.Sleep(10000);
-        }
-        private void ocultarForm()
-        {
-            loading carga = new loading();
-            if (carga != null)
+            try
             {
-                carga.Close();
+                using (MySqlConnection mysql = new MySqlConnection(conexion))
+                {
+                    mysql.Open();
+                    using (MySqlCommand actualizarEstado = new MySqlCommand("UPDATE membresia SET Estatus_Membresia='Activa'WHERE ID_Membresia=@idMembresia", mysql))
+                    {
+                        actualizarEstado.Parameters.AddWithValue("@idMembresia", cbMembresia.SelectedItem);
+                        actualizarEstado.ExecuteNonQuery();
+                    }
+                }
             }
-        }
-        private void cargarForm()
-        {
-            loading carga = new loading();
-            carga.Show();
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -329,6 +335,7 @@ namespace GIMNASIOJAEM.Apariencia
                 return;
             }
             int membresiaId;
+            string resultadosTipo;
             using (MySqlConnection mysql=new MySqlConnection(conexion))
             {
                 mysql.Open();
@@ -348,6 +355,22 @@ namespace GIMNASIOJAEM.Apariencia
                         cbMembresia.Items.Clear();
                     }
 
+                }
+                using (MySqlCommand tipoMembresia=new MySqlCommand("SELECT Tipo_Membresia FROM membresia WHERE Cliente_ID=@clienteiD",mysql))
+                {
+                    tipoMembresia.Parameters.AddWithValue("@clienteID",cbClientes.SelectedValue);
+                    object results = tipoMembresia.ExecuteScalar();
+                    if (results != null)
+                    {
+                        resultadosTipo = Convert.ToString(results);
+                        cbTipoMembresia.Items.Clear();
+                        cbTipoMembresia.Items.Add(resultadosTipo);
+                        cbTipoMembresia.SelectedIndex = 0;
+                    }
+                    else
+                    {
+                        cbTipoMembresia.Items.Clear();
+                    }
                 }
             }
         }

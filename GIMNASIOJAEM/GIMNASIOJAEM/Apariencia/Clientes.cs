@@ -80,7 +80,28 @@ namespace GIMNASIOJAEM.Apariencia
 
         private void button5_Click(object sender, EventArgs e)
         {
+            if (tbNombre.Text != "")
+            {
 
+
+                using (MySqlConnection mysql = new MySqlConnection(conexion))
+                {
+                    mysql.Open();
+                    using (MySqlCommand buscar = new MySqlCommand("SELECT Persona_ID,Clave_Cliente,persona.Nombre,persona.Apellido_Paterno,persona.Apellido_Materno,cliente.Objetivos,cliente.Nivel_Experiencia FROM cliente JOIN persona ON persona.ID_Persona=cliente.Persona_ID WHERE persona.Nombre=@nombre", mysql))
+                    {
+                        buscar.Parameters.AddWithValue("@nombre",tbNombre.Text);
+                        buscar.ExecuteNonQuery();
+                        MySqlDataAdapter adapter = new MySqlDataAdapter(buscar);
+                        DataTable dt = new DataTable();
+                        adapter.Fill(dt);
+                        dgvClientes.DataSource = dt;
+                    }
+                }
+            }
+            else
+            {
+                refreshDGV();
+            }
         }
         private void refreshDGV()
         {

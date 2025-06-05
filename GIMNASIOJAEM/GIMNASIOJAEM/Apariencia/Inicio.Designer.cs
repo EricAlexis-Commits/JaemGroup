@@ -89,7 +89,7 @@
             // 
             this.lblMembresias.AutoSize = true;
             this.lblMembresias.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMembresias.Location = new System.Drawing.Point(481, 219);
+            this.lblMembresias.Location = new System.Drawing.Point(542, 241);
             this.lblMembresias.Name = "lblMembresias";
             this.lblMembresias.Size = new System.Drawing.Size(59, 22);
             this.lblMembresias.TabIndex = 17;
@@ -104,6 +104,7 @@
             this.lblClases.Size = new System.Drawing.Size(59, 22);
             this.lblClases.TabIndex = 16;
             this.lblClases.Text = "label8";
+            this.lblClases.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblEntrenadores
             // 
@@ -114,6 +115,7 @@
             this.lblEntrenadores.Size = new System.Drawing.Size(59, 22);
             this.lblEntrenadores.TabIndex = 15;
             this.lblEntrenadores.Text = "label7";
+            this.lblEntrenadores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblClientes
             // 
@@ -124,12 +126,13 @@
             this.lblClientes.Size = new System.Drawing.Size(59, 22);
             this.lblClientes.TabIndex = 14;
             this.lblClientes.Text = "label6";
+            this.lblClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(366, 203);
+            this.label5.Location = new System.Drawing.Point(407, 203);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(365, 16);
             this.label5.TabIndex = 13;
@@ -144,6 +147,7 @@
             this.label4.Size = new System.Drawing.Size(246, 16);
             this.label4.TabIndex = 12;
             this.label4.Text = "CANTIDAD TOTAL DE CLASES:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label3
             // 
@@ -154,6 +158,7 @@
             this.label3.Size = new System.Drawing.Size(316, 16);
             this.label3.TabIndex = 11;
             this.label3.Text = "CANTIDAD TOTAL DE ENTRENADORES:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label2
             // 
@@ -164,6 +169,7 @@
             this.label2.Size = new System.Drawing.Size(262, 16);
             this.label2.TabIndex = 10;
             this.label2.Text = "CANTIDAD TOTAL DE CLIENTES:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label1
             // 

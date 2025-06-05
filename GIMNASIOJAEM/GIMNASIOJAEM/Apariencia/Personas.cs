@@ -52,7 +52,7 @@ namespace GIMNASIOJAEM.Apariencia
         {
             agregarDatos nuevo = new agregarDatos();
             nuevo.ShowDialog();
-            nuevo.ocultarDatos();
+            refrescarForm("persona");
             
         }
 
@@ -60,6 +60,7 @@ namespace GIMNASIOJAEM.Apariencia
         {
             eliminarDatos datos = new eliminarDatos();
             datos.ShowDialog();
+            refrescarForm("persona");
             
         }
 
@@ -151,7 +152,7 @@ namespace GIMNASIOJAEM.Apariencia
         }
         public void refrescarForm(string tabla)
         {
-            /*mysql.Open();
+            mysql.Open();
 
             MySqlCommand busqueda = new MySqlCommand($"SELECT * FROM {tabla}", mysql);
 
@@ -165,14 +166,14 @@ namespace GIMNASIOJAEM.Apariencia
             dgvPersonas.DataSource = table;
 
             mysql.Close();
-            */
+            
         }
 
         private void btnEditar_Click_1(object sender, EventArgs e)
         {
             agregarDatos nuevos = new agregarDatos();
             nuevos.ShowDialog();
-            nuevos.revelarDatos();
+            refrescarForm("persona");
         }
 
         private void timer1_Tick(object sender, EventArgs e)
